@@ -1,0 +1,5 @@
+Manifest-Version: 0.1
+Created-By: Golden Dragon
+Main-Class: lab2.src.Main
+Class-path: libs/Pokemon.jar
+
