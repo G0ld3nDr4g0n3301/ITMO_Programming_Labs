@@ -1,5 +1,5 @@
 Manifest-Version: 0.2
 Created-By: Golden Dragon
 Main-Class: Main
-Class-path: Pokemon.jar:attacks:pokemons:utils:.
+Class-Path: src/libs/Pokemon.jar attacks pokemons utils .
 
