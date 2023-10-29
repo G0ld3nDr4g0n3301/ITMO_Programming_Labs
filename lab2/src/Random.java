@@ -8,7 +8,4 @@ public class Random {
 		return probability > Math.random();
 	}
 
-	public static int number(int max) {
-		return (int) (Math.random() * max);
-	}
 }

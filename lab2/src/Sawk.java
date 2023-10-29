@@ -2,7 +2,7 @@ package pokemons;
 
 import ru.ifmo.se.pokemon.Pokemon;
 import ru.ifmo.se.pokemon.Type;
-import attacks.Bulldoze;
+import attacks.physical.*;
 
 public class Sawk extends Pokemon {
 
@@ -12,7 +12,7 @@ public class Sawk extends Pokemon {
 		super.setType(Type.FIGHTING);
 		super.setStats(75, 125, 75, 30, 75, 85);
 
-		Bulldoze bulldoze = new Bulldoze(60, 100);
+		Bulldoze bulldoze = new Bulldoze();
 
 		super.setMove(bulldoze);
 	}
