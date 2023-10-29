@@ -15,7 +15,6 @@ public class Bulldoze extends PhysicalMove {
 
 	@Override
 	protected void applyOppEffects(Pokemon p) {
-
 		Effect e = new Effect().stat(Stat.SPEED, -1);
 		p.addEffect(e);
 	}
