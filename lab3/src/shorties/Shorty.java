@@ -18,6 +18,20 @@ abstract public class Shorty implements CanCarry, Runable, Walkable{
     protected MoveStyle currentMovingStyle = MoveStyle.STAND;
     protected Mood mood;
     
+    public String getName() {
+        return this.name;
+    }
+
+    public Mood getMood() {
+        return this.mood;
+    }
+
+    public Gender getGender(){
+        return this.gender;
+    }
+
+
+
     @Override
     public void setCarriedItem(CarryableItem item) {
         this.carriedItem = item;
@@ -75,5 +89,38 @@ abstract public class Shorty implements CanCarry, Runable, Walkable{
 
     public Leg getLeg(){
         return this.leg;
+    }
+
+    @Override
+    public int hashCode(){
+        int hash = this.name.length() * 7 + this.currentSpeed * 113;
+        if (this.gender == Gender.MALE){
+            return hash * 3;
+        } else{
+            return hash*2;
+        }
+
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if (this.hashCode() != o.hashCode()){
+            return false;
+        }
+        if (this == o){
+            return true;
+        }
+        if (!(o instanceof Shorty)) {
+            return false;
+        }
+        if (this.name == o.getName() && this.mood == o.getMood() && this.gender == o.getGender() && this.location == o.getLocation()) {
+            return true;
+        }
+
+    }
+
+    @Override
+    public String toString(){
+        return "Это коротышка " + this.name + ", находится в " + this.location.getName() + ",в настроении " + this.mood.name;
     }
 }

@@ -25,7 +25,11 @@ public class Main {
        silly.think(Thought.THE_VEGETABLES_SIZE);
        silly.think(Thought.WATERING_THE_BEDS);
        Beds beds = new Beds(10, 5);
-       beds.fillBeds(new Vegetable(VegetableType.LUNAR_CUCUMBER, 0.5, 12));
+       Vegetable test_vegetable = new Vegetable(VegetableType.LUNAR_CUCUMBER, 0.5, 12);
+       beds.fillBeds(test_vegetable);
        beds.waterBeds(3, 5);
+       System.out.println(silly);
+       System.out.println(fix);
+       System.out.println(silly.hashCode() + fix.hashCode());
     }
 }

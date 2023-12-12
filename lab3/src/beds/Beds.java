@@ -11,13 +11,21 @@ public class Beds {
     
     private int length;
     private int width;
-    private Vegetable[][] cells;
+    public Vegetable[][] cells;
 
     public Beds(int length, int width) {
         this.length = length;
         this.width = width;
 
         this.cells = new Vegetable[length][width];
+    }
+
+    public int getLength(){
+        return this.length;
+    }
+
+    public int getWidth(){
+        return this.width;
     }
 
     public void fillBeds(Vegetable vegetable) {
@@ -49,6 +57,47 @@ public class Beds {
                 }
             }
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this){
+            return true;
+        }
+        if (!(o instanceof Beds)){
+            return false;
+        }
+        if (o.getLength() != this.length || o.getWidth() != this.width) {
+            return false;
+        }
+        for (int i = 0; i < this.length; i++){
+            for (int j = 0; j < this.width; j++){
+                if (this.cells[i][j] != o.cells[i][j]){
+                    return false;
+                }
+            }
+        }
+        return true;
+        
+    }
+
+    @Override
+    public int hashCode(){
+        int hash = 0;
+        hash += this.length * 13;
+        hash += this.width * 17;
+        for (int i = 0; i < this.length; i++){
+            for (int j = 0; j < this.width; j++){
+                hash += (int) this.cells[i][j].waterLevel * 23;
+            }
+        }
+        return hash;
+    }
+
+
+    @Override
+    public String toString(){
+        return "Огород длиной в " + this.length + " и шириной в " + this.width;
     }
 
 }

@@ -82,7 +82,46 @@ public class Vegetable {
         return this.volume;
     }
 
+    public VegetableType getType(){
+        return this.type;
+    }
 
+    public VegetableStages getStage() {
+        return this.stage;
+    }
+
+    public double getWaterLevel() {
+        return this.waterLevel;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this){
+            return true;
+        }
+        if (!(o instanceof Vegetable)){
+            return false;
+        }
+        if (this.type != o.getType() || this.stage != o.getStage()) {
+            return false;
+        }
+        if (this.volume == o.getVolume() && this.waterLevel == o.getWaterLevel()){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode(){
+        int hash = this.baseVolume * 41 + this.volume * 29 + ((int) this.waterLevel * 83);
+        return hash;
+    }
+
+    @Override
+    public String toString(){
+
+        return "Это овощ " + this.type.name + " в стадии " + this.stage.name + " у него " + this.waterLevel + " воды.";
+    }
 
 
 }
