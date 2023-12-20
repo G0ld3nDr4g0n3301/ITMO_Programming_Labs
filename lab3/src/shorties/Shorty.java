@@ -113,6 +113,7 @@ abstract public class Shorty implements CanCarry, Runable, Walkable{
         if (!(o instanceof Shorty)) {
             return false;
         }
+        o = (Shorty) o;
         if (this.name == o.getName() && this.mood == o.getMood() && this.gender == o.getGender() && this.location == o.getLocation()) {
             return true;
         }

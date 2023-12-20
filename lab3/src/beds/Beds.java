@@ -67,6 +67,7 @@ public class Beds {
         if (!(o instanceof Beds)){
             return false;
         }
+        o = (Beds) o;
         if (o.getLength() != this.length || o.getWidth() != this.width) {
             return false;
         }

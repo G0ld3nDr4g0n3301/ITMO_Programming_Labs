@@ -1,4 +1,4 @@
 package interfaces;
-public interface Limpable {
+public interface Limpable extends Moveable{
     public void limp();
 }
