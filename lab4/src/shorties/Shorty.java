@@ -48,6 +48,11 @@ abstract public class Shorty implements CanCarry, Runable, Walkable{
     }
 
     @Override
+    public void setMovingStyle(MoveStyle style){
+        this.currentMovingStyle = style;
+    }
+
+    @Override
     public int getCurrentSpeed(){
         return this.currentSpeed;
     }

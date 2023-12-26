@@ -3,5 +3,6 @@ public enum MoveStyle {
     WALK,
     STAND,
     RUN,
-    LIMP
+    LIMP,
+    CRAWL;
 }

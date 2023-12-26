@@ -1,10 +1,13 @@
 import beds.Beds;
 import beds.Vegetable;
 import beds.VegetableType;
+import misc.Basket;
 import misc.Broom;
+import misc.Form;
 import misc.Location;
 import misc.Trap;
 import shorties.Fix;
+import shorties.Harvester;
 import shorties.Mood;
 import shorties.Silly;
 import shorties.Thought;
@@ -38,11 +41,16 @@ public class Main {
        System.out.println(silly.hashCode() + fix.hashCode());
        
        Beds strawberry_beds = new Beds(6,4);
-       Vegetable strawberry = new Vegetable(VegetableType.LUNAR_STRAWBERRY, 3, 10);
+       Vegetable strawberry = new Vegetable(VegetableType.LUNAR_STRAWBERRY, 4, 10);
        strawberry_beds.fillBeds(strawberry);
-       System.out.println(strawberry_beds.harvest(0, 0));
-       System.out.println(strawberry_beds.harvest(0, 0));
 
+       Basket basket = new Basket(Form.ROUND, 24);
+       Harvester nick = new Harvester(basket, strawberry_beds, "Nick", Location.BEDS_STRAWBERRY);
+       nick.setWorkIterationsNumber(24);
+       nick.work();
+       for (Vegetable i : basket.cells){
+        System.out.println(i);
+       }
        
     }
 }

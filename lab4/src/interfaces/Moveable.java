@@ -8,4 +8,5 @@ public interface Moveable{
     public int getCurrentSpeed();
     public MoveStyle getMovingStyle();
     public void stop();
+    public void setMovingStyle(MoveStyle style);
 }
