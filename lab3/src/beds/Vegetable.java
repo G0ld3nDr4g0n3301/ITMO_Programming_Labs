@@ -95,8 +95,9 @@ public class Vegetable {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (o == this){
+    public boolean equals(Object obj) {
+        Vegetable o = (Vegetable) obj; 
+	if (o == this){
             return true;
         }
         if (!(o instanceof Vegetable)){

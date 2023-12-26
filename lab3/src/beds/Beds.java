@@ -60,8 +60,9 @@ public class Beds {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (o == this){
+    public boolean equals(Object obj) {
+	Beds o = (Beds) obj;
+	    if (o == this){
             return true;
         }
         if (!(o instanceof Beds)){

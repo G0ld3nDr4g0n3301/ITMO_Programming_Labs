@@ -103,8 +103,9 @@ abstract public class Shorty implements CanCarry, Runable, Walkable{
     }
 
     @Override
-    public boolean equals(Object o){
-        if (this.hashCode() != o.hashCode()){
+    public boolean equals(Object obj){
+	Shorty o = (Shorty) obj;
+	    if (this.hashCode() != o.hashCode()){
             return false;
         }
         if (this == o){
@@ -117,7 +118,7 @@ abstract public class Shorty implements CanCarry, Runable, Walkable{
         if (this.name == o.getName() && this.mood == o.getMood() && this.gender == o.getGender() && this.location == o.getLocation()) {
             return true;
         }
-
+	return false;
     }
 
     @Override
