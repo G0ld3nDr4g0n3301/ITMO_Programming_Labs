@@ -43,7 +43,7 @@ public class Main {
        Vegetable strawberry = new Vegetable(VegetableType.LUNAR_STRAWBERRY, 4, 10);
        strawberry_beds.fillBeds(strawberry);
 
-       Basket basket = new Basket(Form.ROUND, 24);
+       Basket basket = new Basket(Form.ROUND, 3);
        Harvester nick = new Harvester(basket, strawberry_beds, "Nick", Location.BEDS_STRAWBERRY);
        nick.setWorkIterationsNumber(24);
        nick.work();

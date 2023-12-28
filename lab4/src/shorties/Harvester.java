@@ -2,11 +2,14 @@ package shorties;
 
 
 import beds.Beds;
+import beds.Vegetable;
 import beds.VegetableStages;
+import beds.VegetableType;
 import interfaces.Crowlable;
 import interfaces.Workable;
 import misc.Basket;
 import misc.Location;
+import exceptions.BasketVolumeExceededException;
 
 public class Harvester extends Shorty implements Workable,Crowlable{
     private Basket basket;
@@ -42,7 +45,19 @@ public class Harvester extends Shorty implements Workable,Crowlable{
             int xCoord = currentCell / this.fields.cells[0].length;
             int yCoord = currentCell % this.fields.cells[0].length;
             if (this.fields.cells[xCoord][yCoord].getStage() == VegetableStages.GROW_MAX){
-                this.basket.cells[currentCell] = this.fields.harvest(xCoord, yCoord);
+                try {
+                    this.basket.put(currentCell,this.fields.harvest(xCoord, yCoord));
+                } catch (BasketVolumeExceededException bvee) {
+                    System.out.println(bvee.getMessage());
+                    // Опустошаем корзину. Просто чтобы не повадно было.
+                    /*
+                    for (int j = 0; j < this.basket.cells.length;j++){
+                        this.basket.cells[j] = new Vegetable(VegetableType.LUNAR_STRAWBERRY, -1, 10);
+                    }
+                    */
+                    break;
+
+                }
             }
             currentCell++;
         }
