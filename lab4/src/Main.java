@@ -1,6 +1,7 @@
 import beds.Beds;
 import beds.Vegetable;
 import beds.VegetableType;
+import exceptions.StatisticsFailException;
 import misc.Basket;
 import misc.Form;
 import misc.Location;
@@ -27,7 +28,11 @@ public class Main {
        silly.changeLocation(Location.BEDS_NEAR);
        fix.changeLocation(Location.BEDS_NEAR);
        
+       try {
        silly.think(Thought.THE_VEGETABLES_SIZE);
+       } catch (StatisticsFailException sfe){
+        System.out.println(sfe.getMessage());
+       }
        silly.think(Thought.WATERING_THE_BEDS);
        
        Beds beds = new Beds(10, 5);
