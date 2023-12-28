@@ -1,3 +1,42 @@
+# Lab 4 Programming
+## Important Note:
+I've tried to come up with a logical reason, to implement these strutures in certain classes, but i don't think i succeeded at all. So sometimes the changes i made may look very stupid and unlogical(and they actually are), but i'm making all of this stuff just for demonstration purpouses. So,please, when you see some piece of code,that logically makes no sense, don't be mad at me and just keep in mind,that from the beginning of my work, my creativity left me,so sometimes i make very useless stuff.Thank you.
+
+And, by the way, as i've noticed, inner classes reduces the amount of work that you need to do, but i think that this practice damages scaling ability. Because if you would expand functionality of your program(this expansion can be very unpredictable) you will encounter a bunch of problems,if you were actively using inner classes.
+
+## Non-static Inner Class
+### shorties.Shorty.Leg
+In the beginning i had a shorty class and leg class,implemented separately from each other. When i was choosing, where should i implement an inner class, i've thought, that this Leg class suits this role. My logical explaination: I use this class only once - for an ache() method. Except this only place, i never use this class in my whole project, so i decided to transform it to an inner class. Usually, non-static inner classes are private,so i've let it be as it is.
+
+
+This class has an ache() method, which sets isAching variable to true.It also changes the shorty's mood to angry.
+
+## Static Inner Class
+### watering.Water.WaterDrop
+
+I've decided to create a class,that shutters water into drops.It's a static class, because water drop is a part of water,and at the same time, you do not always want to specify the "source water", which were later separated into drops,sometimes you just want to create a stand-alone waterdrop.
+
+## Anonimous Class
+### shorties.Fix (in takeBroom method)
+I've realized, that i actually need broom only one time, and it doesent play an active role in story,it's just decorative element.
+That's why i decided to make it an anonimous class.
+
+
+
+## Local Class
+### watering.Hose.HoseWorker (in method applyToJob)
+The reason is pretty similar to previous one, i just need worker only one time and in one method.
+
+## Checked Exception
+### exceptions.BacketVolumeExceededException
+If amout of vegetables exceeds the free space volume,this exception is thrown.
+misc.Basket.put() throws this exception.
+
+## Unchecked Exception
+### exceptions StatisticsFailException
+If volume of Lunar vegetables is more than an Earth vegetable, this exception is thrown.For example in shorties.Silly.think().
+
+
 # Lab 3 Programming
 
 ## Important Note:
