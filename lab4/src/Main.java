@@ -2,7 +2,6 @@ import beds.Beds;
 import beds.Vegetable;
 import beds.VegetableType;
 import misc.Basket;
-import misc.Broom;
 import misc.Form;
 import misc.Location;
 import misc.Trap;
@@ -17,11 +16,11 @@ public class Main {
 
        Silly silly = new Silly();
        silly.shrug();
-       new Trap(Location.GARDEN).damageLeg(silly.getLeg());
+       new Trap(Location.GARDEN).damageHuman(silly);
        silly.run();
 
        Fix fix = new Fix("Фикс",Mood.ANGRY);
-       fix.setCarriedItem(new Broom(5));
+       fix.takeBroom();
        fix.walk();
        fix.sniff();
        

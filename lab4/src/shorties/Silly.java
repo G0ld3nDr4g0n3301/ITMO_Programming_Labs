@@ -21,7 +21,7 @@ public class Silly extends Shorty implements Limpable,Thoughtable{
 
     @Override
     public void run(){
-        if (this.leg.isAching) {
+        if (this.getAcheState()) {
             System.out.println("Бежать не получится. Нога болит.");
             this.limp();
         } else {
@@ -31,7 +31,7 @@ public class Silly extends Shorty implements Limpable,Thoughtable{
 
     @Override
     public void walk() {
-        if (this.leg.isAching) {
+        if (this.getAcheState()) {
             System.out.println("Идти не получится.Нога болит.");
             this.limp();
         } else {

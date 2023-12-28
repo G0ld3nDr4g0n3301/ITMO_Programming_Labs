@@ -1,5 +1,5 @@
 package misc;
-import shorties.Leg;
+import shorties.Shorty;
 
 public class Trap {
     public Location location = Location.GARDEN;
@@ -8,8 +8,8 @@ public class Trap {
         this.location = location;
     }
 
-    public void damageLeg(Leg leg) {
-        System.out.println("Капкан травмировал ногу");
-        leg.ache();
+    public void damageHuman(Shorty shorty) {
+        System.out.println("Капкан травмировал " + shorty.getName());
+        shorty.gotDamaged();
     }
 }

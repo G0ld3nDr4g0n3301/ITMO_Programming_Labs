@@ -5,11 +5,12 @@ import interfaces.Runable;
 import interfaces.Walkable;
 import misc.CarryableItem;
 import misc.Location;
+import interfaces.Acheable;
 
 abstract public class Shorty implements CanCarry, Runable, Walkable{
     
     protected String name;
-    protected Location location;
+    protected Location location = Location.GARDEN;
     protected Gender gender = Gender.MALE;
     protected Leg leg = new Leg();
     static protected int baseSpeed = 5;
@@ -18,6 +19,27 @@ abstract public class Shorty implements CanCarry, Runable, Walkable{
     protected MoveStyle currentMovingStyle = MoveStyle.STAND;
     protected Mood mood;
     
+
+    private class Leg implements Acheable{
+
+        protected boolean isAching;
+    
+        @Override
+        public void ache() {
+            this.isAching = true;
+            System.out.println("У " + name + " болит нога.");
+            setMood(Mood.ANGRY);
+        }
+    }
+
+    public void gotDamaged(){
+        this.leg.ache();
+    }
+
+    public boolean getAcheState(){
+        return this.leg.isAching;
+    }
+
     public String getName() {
         return this.name;
     }
@@ -35,6 +57,7 @@ abstract public class Shorty implements CanCarry, Runable, Walkable{
     @Override
     public void setCarriedItem(CarryableItem item) {
         this.carriedItem = item;
+        item.carriedBy(this);
     }
 
     @Override

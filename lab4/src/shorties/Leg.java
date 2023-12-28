@@ -1,5 +1,7 @@
+/*
 package shorties;
 import interfaces.Acheable;
+
 
 public class Leg implements Acheable{
 
@@ -11,3 +13,4 @@ public class Leg implements Acheable{
         System.out.println("Нога болит.");
     }
 }
+*/

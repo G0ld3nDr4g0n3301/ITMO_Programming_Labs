@@ -14,7 +14,8 @@ public class Hose {
 
     public void fire(Water water) {
         water.move = WaterMoves.FALLING;
-        System.out.println("Вода падает вниз.");
+        Water.WaterDrop drops = new Water.WaterDrop(water.waterVolume);
+        System.out.println("Вода падает вниз." + drops);
     }
 
     public void applyToJob(HoseWorker worker){
