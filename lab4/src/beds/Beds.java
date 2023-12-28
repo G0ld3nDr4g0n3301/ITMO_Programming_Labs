@@ -2,7 +2,6 @@ package beds;
 
 import misc.Location;
 import watering.Hose;
-import watering.HoseWorker;
 import watering.Pump;
 import watering.PumpWorker;
 import watering.Water;
@@ -51,8 +50,7 @@ public class Beds {
         pumpWorker1.work();
         pumpWorker2.work();
         Hose hose = new Hose(Location.BEDS_FAR);
-        HoseWorker worker = new HoseWorker(hose);
-        worker.work();
+        hose.applyToJob();
 
         for (int i = 0; i < iteration_number; i++) {
             pump.createPressure(water);
