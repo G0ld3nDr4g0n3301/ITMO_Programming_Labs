@@ -111,7 +111,7 @@ public class Vegetable {
     @Override
     public String toString() {
 
-        return "Это овощ " + this.type.name + " в стадии " + this.stage.name + " у него " + this.waterLevel + " воды.";
+        return "Это овощ " + this.type.getName() + " в стадии " + this.stage.name + " у него " + this.waterLevel + " воды.";
     }
 
 

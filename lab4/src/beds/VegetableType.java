@@ -28,9 +28,11 @@ public enum VegetableType implements CanIncreaseVolume {
         }
     };
 
-    String name;
+    private String name;
 
-
+    public String getName(){
+        return this.name;
+    }
 
     VegetableType(String name) {
         this.name = name;
