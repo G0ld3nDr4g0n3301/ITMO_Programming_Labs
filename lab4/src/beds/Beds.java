@@ -5,6 +5,7 @@ import watering.Hose;
 import watering.Pump;
 import watering.PumpWorker;
 import watering.Water;
+import exceptions.EmptyFieldException;
 
 public class Beds {
 
@@ -12,9 +13,12 @@ public class Beds {
     private int width;
     public Vegetable[][] cells;
 
-    public Beds(int length, int width) {
+    public Beds(int length, int width) throws EmptyFieldException {
         this.length = length;
         this.width = width;
+        if (width == 0 || length == 0) {
+            throw new EmptyFieldException("Нельзя создавать пустое поле");
+        }
 
         this.cells = new Vegetable[length][width];
     }

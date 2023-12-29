@@ -35,11 +35,10 @@ public class Harvester extends Shorty implements Workable, Crowlable {
     }
 
     @Override
-    public void work() {
+    public void work() throws IndexOutOfBoundsException{
         this.crawl();
         int currentCell = 0;
         for (int i = 0; i < this.numberOfVegetablesToHarvest; i++) {
-            // ToDo: Тут может быть индекс аут оф рейндж.Надо пофиксить.
             int xCoord = currentCell / this.fields.cells[0].length;
             int yCoord = currentCell % this.fields.cells[0].length;
             if (this.fields.cells[xCoord][yCoord].getStage() == VegetableStages.GROW_MAX) {

@@ -57,5 +57,7 @@ public class Main {
             System.out.println(i);
         }
 
+        Beds test = new Beds(0,0);
+
     }
 }
