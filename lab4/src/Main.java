@@ -11,13 +11,21 @@ import shorties.Fix;
 import shorties.Silly;
 import shorties.Mood;
 import shorties.Thought;
+import shorties.*;
 
 public class Main {
     public static void main(String[] args) {
 
         Silly silly = new Silly();
         silly.shrug();
-        new Trap(Location.GARDEN).damageHuman(silly);
+        new Object() {
+            public Location location = Location.GARDEN;
+
+            public void damageHuman(Shorty shorty){
+                System.out.println("Капкан травмировал " + shorty.getName());
+                shorty.gotDamaged();
+            }
+        }.damageHuman(silly);;
         silly.run();
 
         Fix fix = new Fix("Фикс", Mood.ANGRY);
