@@ -76,6 +76,9 @@ public class Beds {
 
     @Override
     public boolean equals(Object obj) {
+        if (obj == null){
+            return false;
+        }
         Beds o = (Beds) obj;
         if (o == this) {
             return true;

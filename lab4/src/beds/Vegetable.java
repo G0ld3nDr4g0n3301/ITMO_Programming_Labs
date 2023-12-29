@@ -86,6 +86,9 @@ public class Vegetable {
 
     @Override
     public boolean equals(Object obj) {
+        if (obj == null){
+            return false;
+        }
         Vegetable o = (Vegetable) obj;
         if (o == this) {
             return true;
