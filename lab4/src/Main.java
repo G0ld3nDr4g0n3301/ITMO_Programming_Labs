@@ -53,7 +53,7 @@ public class Main {
         Harvester nick = new Harvester(basket, strawberry_beds, "Nick", Location.BEDS_STRAWBERRY);
         nick.setWorkIterationsNumber(24);
         nick.work();
-        for (Vegetable i : basket.cells) {
+        for (Vegetable i : basket.getBasketCells()) {
             System.out.println(i);
         }
 
