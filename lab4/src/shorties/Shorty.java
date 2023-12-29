@@ -153,6 +153,6 @@ abstract public class Shorty implements CanCarry, Runable, Walkable {
 
     @Override
     public String toString() {
-        return "Это коротышка " + this.name + ", находится в " + this.location.getName() + ",в настроении " + this.mood.name;
+        return "Это коротышка " + this.name + ", находится в " + this.location.getName() + ",в настроении " + this.mood.getName();
     }
 }

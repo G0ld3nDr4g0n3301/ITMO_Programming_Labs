@@ -6,9 +6,13 @@ public enum Form {
     RECTANGLE("Прямоугольный"),
     TRIANGLE("Треугольный");
 
-    public String name;
+    private String name;
 
     private Form(String name) {
         this.name = name;
+    }
+
+    public String getForm() {
+        return this.name;
     }
 }

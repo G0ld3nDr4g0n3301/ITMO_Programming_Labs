@@ -17,7 +17,7 @@ public class Silly extends Shorty implements Limpable, Thoughtable {
     public void shrug() {
         this.mood = Mood.PENSIVE;
         System.out.println(this.name);
-        System.out.println("Пожал плечами(настроение: " + this.mood.name + ")");
+        System.out.println("Пожал плечами(настроение: " + this.mood.getName() + ")");
     }
 
     @Override

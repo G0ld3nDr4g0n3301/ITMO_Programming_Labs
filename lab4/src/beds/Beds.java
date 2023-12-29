@@ -11,7 +11,7 @@ public class Beds {
 
     private int length;
     private int width;
-    public Vegetable[][] cells;
+    private Vegetable[][] cells;
 
     public Beds(int length, int width) throws EmptyFieldException {
         this.length = length;
@@ -29,6 +29,13 @@ public class Beds {
         return currentVegetable;
     }
 
+    public Vegetable getItem(int xCoord, int yCoord) {
+        return this.cells[xCoord][yCoord];
+    }
+
+    public Vegetable[] getList(int coord){
+        return this.cells[coord];
+    }
     public int getLength() {
         return this.length;
     }

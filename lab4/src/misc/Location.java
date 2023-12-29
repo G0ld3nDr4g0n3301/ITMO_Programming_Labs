@@ -6,7 +6,7 @@ public enum Location {
     BEDS_FAR("Дальние грядки"),
     BEDS_STRAWBERRY("Грядки с клубникой");
 
-    String name;
+    private String name;
 
     private Location(String name) {
         this.name = name;

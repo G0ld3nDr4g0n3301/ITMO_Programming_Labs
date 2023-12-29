@@ -5,13 +5,12 @@ import exceptions.StatisticsFailException;
 import misc.Basket;
 import misc.Form;
 import misc.Location;
-import misc.Trap;
 import shorties.Harvester;
 import shorties.Fix;
 import shorties.Silly;
 import shorties.Mood;
 import shorties.Thought;
-import shorties.*;
+import shorties.Shorty;
 
 public class Main {
     public static void main(String[] args) {
@@ -25,7 +24,7 @@ public class Main {
                 System.out.println("Капкан травмировал " + shorty.getName());
                 shorty.gotDamaged();
             }
-        }.damageHuman(silly);;
+        }.damageHuman(silly);
         silly.run();
 
         Fix fix = new Fix("Фикс", Mood.ANGRY);

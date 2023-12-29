@@ -5,9 +5,13 @@ public enum Mood {
     ADMIRING("Любуется"),
     PENSIVE("Задумчивый");
 
-    String name;
+    private String name;
 
     Mood(String mood) {
         this.name = mood;
+    }
+    
+    public String getName(){
+        return this.name;
     }
 }

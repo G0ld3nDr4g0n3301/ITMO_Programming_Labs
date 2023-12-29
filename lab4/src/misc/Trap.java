@@ -1,4 +1,4 @@
-package misc;
+/*package misc;
 
 import shorties.Shorty;
 
@@ -14,3 +14,4 @@ public class Trap {
         shorty.gotDamaged();
     }
 }
+*/

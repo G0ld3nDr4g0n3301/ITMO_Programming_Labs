@@ -39,9 +39,9 @@ public class Harvester extends Shorty implements Workable, Crowlable {
         this.crawl();
         int currentCell = 0;
         for (int i = 0; i < this.numberOfVegetablesToHarvest; i++) {
-            int xCoord = currentCell / this.fields.cells[0].length;
-            int yCoord = currentCell % this.fields.cells[0].length;
-            if (this.fields.cells[xCoord][yCoord].getStage() == VegetableStages.GROW_MAX) {
+            int xCoord = currentCell / this.fields.getList(0).length;
+            int yCoord = currentCell % this.fields.getList(0).length;
+            if (this.fields.getItem(xCoord,yCoord).getStage() == VegetableStages.GROW_MAX) {
                 try {
                     this.basket.put(currentCell, this.fields.harvest(xCoord, yCoord));
                 } catch (BasketVolumeExceededException bvee) {

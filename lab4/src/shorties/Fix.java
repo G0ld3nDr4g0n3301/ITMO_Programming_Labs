@@ -12,7 +12,7 @@ public class Fix extends Shorty implements Sniffable {
 
     @Override
     public void sniff() {
-        System.out.println(this.name + " сопит, он сейчас " + this.mood.name);
+        System.out.println(this.name + " сопит, он сейчас " + this.mood.getName());
     }
 
     public void takeBroom() {
