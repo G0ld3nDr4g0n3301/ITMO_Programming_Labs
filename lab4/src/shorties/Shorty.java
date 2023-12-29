@@ -22,7 +22,7 @@ abstract public class Shorty implements CanCarry, Runable, Walkable {
 
     private class Leg implements Acheable {
 
-        protected boolean isAching;
+        private boolean isAching;
 
         @Override
         public void ache() {
