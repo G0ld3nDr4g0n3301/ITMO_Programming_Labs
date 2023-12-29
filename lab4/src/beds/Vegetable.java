@@ -13,18 +13,7 @@ public class Vegetable {
     }
 
     public int increaseBaseVolume(int baseVolume) {
-        switch (this.type) {
-            case LUNAR_TOMATO:
-                return baseVolume;
-            case LUNAR_CUCUMBER:
-                return baseVolume + 1;
-            case EARTH_TOMATO:
-                return baseVolume * 20;
-            case EARTH_CUCUMBER:
-                return baseVolume * 20 + 1;
-            default:
-                return 0;
-        }
+        return this.type.getIncreasedVolume(baseVolume);
     }
 
     public Vegetable(VegetableType type, double waterLevel, int baseVolume) {
