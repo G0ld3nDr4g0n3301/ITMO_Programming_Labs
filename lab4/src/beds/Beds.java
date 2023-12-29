@@ -7,7 +7,7 @@ import watering.PumpWorker;
 import watering.Water;
 
 public class Beds {
-    
+
     private int length;
     private int width;
     public Vegetable[][] cells;
@@ -19,34 +19,34 @@ public class Beds {
         this.cells = new Vegetable[length][width];
     }
 
-    public Vegetable harvest(int x, int y){
+    public Vegetable harvest(int x, int y) {
         Vegetable currentVegetable = cells[x][y];
         cells[x][y] = new Vegetable(cells[x][y].getType(), -1, 10);
         return currentVegetable;
     }
 
-    public int getLength(){
+    public int getLength() {
         return this.length;
     }
 
-    public int getWidth(){
+    public int getWidth() {
         return this.width;
     }
 
     public void fillBeds(Vegetable vegetable) {
         Vegetable[] row = Vegetable.cloneVegetable(vegetable, this.width);
-        for (int i = 0;i< length;i++) {
-            for (int j = 0;j < width; j++) {
+        for (int i = 0; i < length; i++) {
+            for (int j = 0; j < width; j++) {
                 this.cells[i][j] = row[j];
             }
         }
     }
 
-    public void waterBeds(int iteration_number,int waterVolume) { 
+    public void waterBeds(int iteration_number, int waterVolume) {
         Water water = new Water(waterVolume);
         Pump pump = new Pump(Location.BEDS_FAR);
         PumpWorker pumpWorker1 = new PumpWorker(pump, Location.BEDS_FAR, false);
-        PumpWorker pumpWorker2 = new PumpWorker(pump, Location.BEDS_FAR ,true);
+        PumpWorker pumpWorker2 = new PumpWorker(pump, Location.BEDS_FAR, true);
         pumpWorker1.work();
         pumpWorker2.work();
         Hose hose = new Hose(Location.BEDS_FAR);
@@ -55,9 +55,9 @@ public class Beds {
         for (int i = 0; i < iteration_number; i++) {
             pump.createPressure(water);
             hose.fire(water);
-            for (int j = 0;j< this.length;j++) {
-                for (int k = 0;k< this.width;k++) {
-                    this.cells[j][k].increaseWaterLevel(0.1*waterVolume);
+            for (int j = 0; j < this.length; j++) {
+                for (int k = 0; k < this.width; k++) {
+                    this.cells[j][k].increaseWaterLevel(0.1 * waterVolume);
                 }
             }
         }
@@ -65,35 +65,35 @@ public class Beds {
 
     @Override
     public boolean equals(Object obj) {
-	Beds o = (Beds) obj;
-	    if (o == this){
+        Beds o = (Beds) obj;
+        if (o == this) {
             return true;
         }
-        if (!(o instanceof Beds)){
+        if (!(o instanceof Beds)) {
             return false;
         }
         o = (Beds) o;
         if (o.getLength() != this.length || o.getWidth() != this.width) {
             return false;
         }
-        for (int i = 0; i < this.length; i++){
-            for (int j = 0; j < this.width; j++){
-                if (this.cells[i][j] != o.cells[i][j]){
+        for (int i = 0; i < this.length; i++) {
+            for (int j = 0; j < this.width; j++) {
+                if (this.cells[i][j] != o.cells[i][j]) {
                     return false;
                 }
             }
         }
         return true;
-        
+
     }
 
     @Override
-    public int hashCode(){
+    public int hashCode() {
         int hash = 0;
         hash += this.length * 13;
         hash += this.width * 17;
-        for (int i = 0; i < this.length; i++){
-            for (int j = 0; j < this.width; j++){
+        for (int i = 0; i < this.length; i++) {
+            for (int j = 0; j < this.width; j++) {
                 hash += (int) this.cells[i][j].waterLevel * 23;
             }
         }
@@ -102,7 +102,7 @@ public class Beds {
 
 
     @Override
-    public String toString(){
+    public String toString() {
         return "Огород длиной в " + this.length + " и шириной в " + this.width;
     }
 

@@ -1,4 +1,5 @@
 package misc;
+
 public enum Location {
     GARDEN("Сад"),
     BEDS_NEAR("Ближние грядки"),
@@ -7,10 +8,11 @@ public enum Location {
 
     String name;
 
-    private Location(String name){
+    private Location(String name) {
         this.name = name;
     }
-    public String getName(){
+
+    public String getName() {
         return this.name;
     }
 }

@@ -1,8 +1,9 @@
 package misc;
+
 import interfaces.CanBeCarried;
 import interfaces.CanCarry;
 
-public abstract class CarryableItem implements CanBeCarried{ 
+public abstract class CarryableItem implements CanBeCarried {
 
     protected CanCarry carrier;
 
@@ -10,7 +11,7 @@ public abstract class CarryableItem implements CanBeCarried{
         this.carrier = carrier;
     }
 
-    public CanCarry getCarrier(){
+    public CanCarry getCarrier() {
         return this.carrier;
     }
 }

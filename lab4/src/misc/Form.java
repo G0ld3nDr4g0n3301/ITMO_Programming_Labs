@@ -8,7 +8,7 @@ public enum Form {
 
     public String name;
 
-    private Form(String name){
+    private Form(String name) {
         this.name = name;
     }
 }

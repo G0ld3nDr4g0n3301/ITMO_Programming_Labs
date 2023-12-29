@@ -7,21 +7,21 @@ import interfaces.Limpable;
 import interfaces.Thoughtable;
 import misc.Location;
 
-public class Silly extends Shorty implements Limpable,Thoughtable{
-    
-    public Silly(){
+public class Silly extends Shorty implements Limpable, Thoughtable {
+
+    public Silly() {
         this.name = "Незнайка";
         this.location = Location.GARDEN;
     }
 
-    public void shrug(){
+    public void shrug() {
         this.mood = Mood.PENSIVE;
         System.out.println(this.name);
         System.out.println("Пожал плечами(настроение: " + this.mood.name + ")");
     }
 
     @Override
-    public void run(){
+    public void run() {
         if (this.getAcheState()) {
             System.out.println("Бежать не получится. Нога болит.");
             this.limp();
@@ -41,7 +41,7 @@ public class Silly extends Shorty implements Limpable,Thoughtable{
     }
 
     @Override
-    public void limp(){
+    public void limp() {
         this.currentSpeed = baseSpeed;
         System.out.println(this.name + " Хромает.");
         this.currentMovingStyle = MoveStyle.LIMP;
@@ -55,12 +55,12 @@ public class Silly extends Shorty implements Limpable,Thoughtable{
 
                 Vegetable TomL = new Vegetable(VegetableType.LUNAR_TOMATO, 6, 50);
                 Vegetable TomE = new Vegetable(VegetableType.EARTH_TOMATO, 6, 1);
-                Vegetable CucL = new Vegetable(VegetableType.LUNAR_CUCUMBER, 6,50);
+                Vegetable CucL = new Vegetable(VegetableType.LUNAR_CUCUMBER, 6, 50);
                 Vegetable CucE = new Vegetable(VegetableType.EARTH_CUCUMBER, 6, 1);
 
-                float difference = (TomE.getVolume() / TomL.getVolume() + CucE.getVolume() / CucL.getVolume()) / 2; 
-                
-                if(difference < 1) {
+                float difference = (TomE.getVolume() / TomL.getVolume() + CucE.getVolume() / CucL.getVolume()) / 2;
+
+                if (difference < 1) {
                     throw new StatisticsFailException("Ошибка статистики,лунные овощи больше земных");
                 }
 
@@ -71,7 +71,7 @@ public class Silly extends Shorty implements Limpable,Thoughtable{
                 System.out.println("ДЕДЛАЙНЫ");
                 System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
                 break;
-            
+
             case WATERING_THE_BEDS:
                 this.setMood(Mood.ADMIRING);
                 System.out.println(this.name + " любуется поливом грядок.");

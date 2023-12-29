@@ -1,4 +1,3 @@
-
 package watering;
 
 import interfaces.Workable;
@@ -6,7 +5,7 @@ import misc.Location;
 import shorties.Shorty;
 
 public class Hose {
-    
+
     public Location location;
     private Shorty worker;
 
@@ -20,19 +19,19 @@ public class Hose {
         System.out.println("Вода падает вниз." + drops);
     }
 
-    public void applyToJob(){
-        
-        class HoseWorker extends Shorty implements Workable{
+    public void applyToJob() {
 
-            private Hose hose;
+        class HoseWorker extends Shorty implements Workable {
 
-            public HoseWorker(Hose hose){
+            private final Hose hose;
+
+            public HoseWorker(Hose hose) {
                 this.hose = hose;
             }
 
             @Override
-            public void work(){
-                if (this.location == this.hose.location){
+            public void work() {
+                if (this.location == this.hose.location) {
                     worker = this;
                 }
             }

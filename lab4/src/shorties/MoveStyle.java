@@ -1,4 +1,5 @@
 package shorties;
+
 public enum MoveStyle {
     WALK,
     STAND,

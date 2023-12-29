@@ -1,14 +1,14 @@
 package shorties;
 
+import interfaces.Acheable;
 import interfaces.CanCarry;
 import interfaces.Runable;
 import interfaces.Walkable;
 import misc.CarryableItem;
 import misc.Location;
-import interfaces.Acheable;
 
-abstract public class Shorty implements CanCarry, Runable, Walkable{
-    
+abstract public class Shorty implements CanCarry, Runable, Walkable {
+
     protected String name;
     protected Location location = Location.GARDEN;
     protected Gender gender = Gender.MALE;
@@ -18,12 +18,12 @@ abstract public class Shorty implements CanCarry, Runable, Walkable{
     protected CarryableItem carriedItem;
     protected MoveStyle currentMovingStyle = MoveStyle.STAND;
     protected Mood mood;
-    
 
-    private class Leg implements Acheable{
+
+    private class Leg implements Acheable {
 
         protected boolean isAching;
-    
+
         @Override
         public void ache() {
             this.isAching = true;
@@ -32,11 +32,11 @@ abstract public class Shorty implements CanCarry, Runable, Walkable{
         }
     }
 
-    public void gotDamaged(){
+    public void gotDamaged() {
         this.leg.ache();
     }
 
-    public boolean getAcheState(){
+    public boolean getAcheState() {
         return this.leg.isAching;
     }
 
@@ -48,10 +48,9 @@ abstract public class Shorty implements CanCarry, Runable, Walkable{
         return this.mood;
     }
 
-    public Gender getGender(){
+    public Gender getGender() {
         return this.gender;
     }
-
 
 
     @Override
@@ -61,22 +60,22 @@ abstract public class Shorty implements CanCarry, Runable, Walkable{
     }
 
     @Override
-    public CarryableItem getCarriedItem(){
+    public CarryableItem getCarriedItem() {
         return this.carriedItem;
     }
 
     @Override
-    public MoveStyle getMovingStyle(){
+    public MoveStyle getMovingStyle() {
         return this.currentMovingStyle;
     }
 
     @Override
-    public void setMovingStyle(MoveStyle style){
+    public void setMovingStyle(MoveStyle style) {
         this.currentMovingStyle = style;
     }
 
     @Override
-    public int getCurrentSpeed(){
+    public int getCurrentSpeed() {
         return this.currentSpeed;
     }
 
@@ -86,26 +85,26 @@ abstract public class Shorty implements CanCarry, Runable, Walkable{
         System.out.println(this.name + " пришёл в " + this.location.getName());
     }
 
-    public Location getLocation(){
+    public Location getLocation() {
         return this.location;
     }
 
     @Override
-    public void run(){
+    public void run() {
         System.out.println(this.name + " Бежит");
         this.currentSpeed = baseSpeed * 3;
         this.currentMovingStyle = MoveStyle.RUN;
     }
 
     @Override
-    public void walk(){
+    public void walk() {
         System.out.println(this.name + " идёт");
         this.currentSpeed = baseSpeed * 2;
         this.currentMovingStyle = MoveStyle.WALK;
     }
 
     @Override
-    public void stop(){
+    public void stop() {
         System.out.println(this.name + " Остановился");
         this.currentSpeed = 0;
         this.currentMovingStyle = MoveStyle.STAND;
@@ -115,28 +114,28 @@ abstract public class Shorty implements CanCarry, Runable, Walkable{
         this.mood = mood;
     }
 
-    public Leg getLeg(){
+    public Leg getLeg() {
         return this.leg;
     }
 
     @Override
-    public int hashCode(){
+    public int hashCode() {
         int hash = this.name.length() * 7 + this.currentSpeed * 113;
-        if (this.gender == Gender.MALE){
+        if (this.gender == Gender.MALE) {
             return hash * 3;
-        } else{
-            return hash*2;
+        } else {
+            return hash * 2;
         }
 
     }
 
     @Override
-    public boolean equals(Object obj){
-	Shorty o = (Shorty) obj;
-	    if (this.hashCode() != o.hashCode()){
+    public boolean equals(Object obj) {
+        Shorty o = (Shorty) obj;
+        if (this.hashCode() != o.hashCode()) {
             return false;
         }
-        if (this == o){
+        if (this == o) {
             return true;
         }
         if (!(o instanceof Shorty)) {
@@ -146,11 +145,11 @@ abstract public class Shorty implements CanCarry, Runable, Walkable{
         if (this.name == o.getName() && this.mood == o.getMood() && this.gender == o.getGender() && this.location == o.getLocation()) {
             return true;
         }
-	return false;
+        return false;
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "Это коротышка " + this.name + ", находится в " + this.location.getName() + ",в настроении " + this.mood.name;
     }
 }

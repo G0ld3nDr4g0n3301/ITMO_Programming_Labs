@@ -1,6 +1,7 @@
 package beds;
+
 public class Vegetable {
-    
+
     protected VegetableType type;
     protected VegetableStages stage;
     protected int baseVolume;
@@ -26,7 +27,7 @@ public class Vegetable {
         }
     }
 
-    public Vegetable(VegetableType type, double waterLevel, int baseVolume){
+    public Vegetable(VegetableType type, double waterLevel, int baseVolume) {
         this.type = type;
         this.waterLevel = waterLevel;
         this.baseVolume = this.increaseBaseVolume(baseVolume);
@@ -34,20 +35,20 @@ public class Vegetable {
         this.checkGrowth();
     }
 
-    public static Vegetable[] cloneVegetable(Vegetable vegetable, int amount){
+    public static Vegetable[] cloneVegetable(Vegetable vegetable, int amount) {
         Vegetable[] vegetableClones = new Vegetable[amount];
-        for (int i = 0;i<amount;i++) {
+        for (int i = 0; i < amount; i++) {
             vegetableClones[i] = vegetable;
         }
         return vegetableClones;
     }
 
 
-    public void checkGrowth(){
+    public void checkGrowth() {
         if (this.stage != VegetableStages.OVERGROW && this.stage != VegetableStages.NONE) {
-            
-            switch ( (int) this.waterLevel) {
-            
+
+            switch ((int) this.waterLevel) {
+
                 case -1:
                     this.stage = VegetableStages.NONE;
                     break;
@@ -74,15 +75,15 @@ public class Vegetable {
                     this.stage = VegetableStages.OVERGROW;
                     this.volume = this.baseVolume * 10;
                     break;
-                }
+            }
         }
     }
 
-    public int getVolume(){
+    public int getVolume() {
         return this.volume;
     }
 
-    public VegetableType getType(){
+    public VegetableType getType() {
         return this.type;
     }
 
@@ -96,30 +97,30 @@ public class Vegetable {
 
     @Override
     public boolean equals(Object obj) {
-        Vegetable o = (Vegetable) obj; 
-	if (o == this){
+        Vegetable o = (Vegetable) obj;
+        if (o == this) {
             return true;
         }
-        if (!(o instanceof Vegetable)){
+        if (!(o instanceof Vegetable)) {
             return false;
         }
         if (this.type != o.getType() || this.stage != o.getStage()) {
             return false;
         }
-        if (this.volume == o.getVolume() && this.waterLevel == o.getWaterLevel()){
+        if (this.volume == o.getVolume() && this.waterLevel == o.getWaterLevel()) {
             return true;
         }
         return false;
     }
 
     @Override
-    public int hashCode(){
+    public int hashCode() {
         int hash = this.baseVolume * 41 + this.volume * 29 + ((int) this.waterLevel * 83);
         return hash;
     }
 
     @Override
-    public String toString(){
+    public String toString() {
 
         return "Это овощ " + this.type.name + " в стадии " + this.stage.name + " у него " + this.waterLevel + " воды.";
     }

@@ -1,4 +1,5 @@
 package beds;
+
 public enum VegetableStages {
     NONE("не посажен"),
     RECENTLY_PLANTED("недавно посажен"),
@@ -11,7 +12,7 @@ public enum VegetableStages {
 
     String name;
 
-    VegetableStages(String name){
+    VegetableStages(String name) {
         this.name = name;
     }
 }

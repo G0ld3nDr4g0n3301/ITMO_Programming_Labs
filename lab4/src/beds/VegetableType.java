@@ -1,4 +1,5 @@
 package beds;
+
 public enum VegetableType {
     EARTH_CUCUMBER("Огурец земной"),
     EARTH_TOMATO("Помидор земной"),
@@ -8,7 +9,7 @@ public enum VegetableType {
 
     String name;
 
-    VegetableType(String name){
+    VegetableType(String name) {
         this.name = name;
     }
 }
