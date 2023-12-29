@@ -131,6 +131,9 @@ abstract public class Shorty implements CanCarry, Runable, Walkable {
 
     @Override
     public boolean equals(Object obj) {
+        if (obj == null){
+            return false;
+        }
         Shorty o = (Shorty) obj;
         if (this.hashCode() != o.hashCode()) {
             return false;
