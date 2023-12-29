@@ -22,6 +22,7 @@ public class Main {
 
         Fix fix = new Fix("Фикс", Mood.ANGRY);
         fix.takeBroom();
+        fix.takeBroom();
         fix.walk();
         fix.sniff();
 

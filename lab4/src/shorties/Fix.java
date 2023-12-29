@@ -16,6 +16,7 @@ public class Fix extends Shorty implements Sniffable {
     }
 
     public void takeBroom() {
+        if (this.getCarriedItem() == null){
         CarryableItem broom = new CarryableItem() {
             @Override
             public String toString() {
@@ -25,5 +26,9 @@ public class Fix extends Shorty implements Sniffable {
         this.setCarriedItem(broom);
         System.out.println(this.getCarriedItem().getCarrier());
         System.out.println(this.getCarriedItem());
+        }
+        else {
+            System.out.println("Не может взять метлу дважды");
+        }
     }
 }
