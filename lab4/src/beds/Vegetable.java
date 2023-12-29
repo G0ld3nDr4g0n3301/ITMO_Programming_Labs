@@ -46,7 +46,7 @@ public class Vegetable {
     public void checkGrowth(){
         if (this.stage != VegetableStages.OVERGROW && this.stage != VegetableStages.NONE) {
             
-            switch ( (int) this.waterLevel / 1) {
+            switch ( (int) this.waterLevel) {
             
                 case -1:
                     this.stage = VegetableStages.NONE;
