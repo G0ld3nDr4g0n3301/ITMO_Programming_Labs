@@ -18,11 +18,13 @@ public class Main {
         Silly silly = new Silly();
         silly.shrug();
         new Object() {
-            public Location location = Location.GARDEN;
+            private Location location = Location.GARDEN;
 
             public void damageHuman(Shorty shorty){
-                System.out.println("Капкан травмировал " + shorty.getName());
-                shorty.gotDamaged();
+                if(this.location == shorty.getLocation()){
+                    System.out.println("Капкан травмировал " + shorty.getName());
+                    shorty.gotDamaged();   
+                }
             }
         }.damageHuman(silly);
         silly.run();
