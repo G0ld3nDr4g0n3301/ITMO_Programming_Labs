@@ -1,10 +1,13 @@
 import beds.Beds;
 import beds.Vegetable;
 import beds.VegetableType;
+
 import exceptions.StatisticsFailException;
+import interfaces.Damageable;
 import misc.Basket;
 import misc.Form;
 import misc.Location;
+
 import shorties.Harvester;
 import shorties.Fix;
 import shorties.Silly;
@@ -12,21 +15,25 @@ import shorties.Mood;
 import shorties.Thought;
 import shorties.Shorty;
 
+
 public class Main {
     public static void main(String[] args) {
 
         Silly silly = new Silly();
         silly.shrug();
-        new Object() {
+        Damageable trap = new Damageable() {
             private Location location = Location.GARDEN;
 
+            @Override
             public void damageHuman(Shorty shorty){
-                if(this.location == shorty.getLocation()){
+                if (this.location == shorty.getLocation()) {
                     System.out.println("Капкан травмировал " + shorty.getName());
                     shorty.gotDamaged();   
                 }
             }
-        }.damageHuman(silly);
+        };
+
+        trap.damageHuman(silly);
         silly.run();
 
         Fix fix = new Fix("Фикс", Mood.ANGRY);
@@ -43,6 +50,7 @@ public class Main {
         } catch (StatisticsFailException sfe) {
             System.out.println(sfe.getMessage());
         }
+
         silly.think(Thought.WATERING_THE_BEDS);
 
         Beds beds = new Beds(10, 5);

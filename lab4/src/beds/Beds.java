@@ -1,10 +1,12 @@
 package beds;
 
 import misc.Location;
+
 import watering.Hose;
 import watering.Pump;
 import watering.PumpWorker;
 import watering.Water;
+
 import exceptions.EmptyFieldException;
 
 public class Beds {
@@ -46,6 +48,7 @@ public class Beds {
 
     public void fillBeds(Vegetable vegetable) {
         Vegetable[] row = Vegetable.cloneVegetable(vegetable, this.width);
+
         for (int i = 0; i < length; i++) {
             for (int j = 0; j < width; j++) {
                 this.cells[i][j] = row[j];
@@ -56,10 +59,13 @@ public class Beds {
     public void waterBeds(int iteration_number, int waterVolume) {
         Water water = new Water(waterVolume);
         Pump pump = new Pump(Location.BEDS_FAR);
+        
         PumpWorker pumpWorker1 = new PumpWorker(pump, Location.BEDS_FAR, false);
         PumpWorker pumpWorker2 = new PumpWorker(pump, Location.BEDS_FAR, true);
+        
         pumpWorker1.work();
         pumpWorker2.work();
+        
         Hose hose = new Hose(Location.BEDS_FAR);
         hose.applyToJob();
 
