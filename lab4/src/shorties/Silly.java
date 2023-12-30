@@ -48,7 +48,7 @@ public class Silly extends Shorty implements Limpable, Thoughtable {
     }
 
     @Override
-    public void think(Thought thought) {
+    public void think(Thought thought) throws StatisticsFailException{
         System.out.println(this.name + " задумался: ");
         switch (thought) {
             case THE_VEGETABLES_SIZE:

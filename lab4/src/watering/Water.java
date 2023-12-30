@@ -1,8 +1,8 @@
 package watering;
 
 public class Water {
-    protected int waterVolume;
-    protected WaterMoves move = WaterMoves.STILL;
+    private int waterVolume;
+    private WaterMoves move = WaterMoves.STILL;
     public static final int grammsPerLiter = 1000;
 
 
@@ -12,6 +12,14 @@ public class Water {
 
     public void setMoveMode(WaterMoves mode) {
         this.move = mode;
+    }
+
+    public int getWaterVolume(){
+        return this.waterVolume;
+    }
+
+    public void setMove(WaterMoves move){
+        this.move = move;
     }
 
     public static class WaterDrop {

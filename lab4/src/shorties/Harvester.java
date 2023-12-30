@@ -8,6 +8,8 @@ import interfaces.Crowlable;
 import interfaces.Workable;
 import misc.Basket;
 import misc.Location;
+import beds.Vegetable;
+import beds.VegetableType;
 
 public class Harvester extends Shorty implements Workable, Crowlable {
     private Basket basket;
@@ -35,7 +37,7 @@ public class Harvester extends Shorty implements Workable, Crowlable {
     }
 
     @Override
-    public void work() throws IndexOutOfBoundsException{
+    public void work(){
         this.crawl();
         int currentCell = 0;
         for (int i = 0; i < this.numberOfVegetablesToHarvest; i++) {
@@ -47,11 +49,10 @@ public class Harvester extends Shorty implements Workable, Crowlable {
                 } catch (BasketVolumeExceededException bvee) {
                     System.out.println(bvee.getMessage());
                     // Опустошаем корзину. Просто чтобы не повадно было.
-                    /*
-                    for (int j = 0; j < this.basket.cells.length;j++){
-                        this.basket.cells[j] = new Vegetable(VegetableType.LUNAR_STRAWBERRY, -1, 10);
+                    for (int j = 0; j < this.basket.getBasketCells().length;j++){
+                        this.basket.put(j, null);
                     }
-                    */
+                    bvee.printStackTrace();
                     break;
 
                 }

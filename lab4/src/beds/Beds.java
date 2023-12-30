@@ -114,7 +114,7 @@ public class Beds {
         hash += this.width * 17;
         for (int i = 0; i < this.length; i++) {
             for (int j = 0; j < this.width; j++) {
-                hash += (int) this.cells[i][j].waterLevel * 23;
+                hash += (int) this.cells[i][j].getWaterLevel() * 23;
             }
         }
         return hash;

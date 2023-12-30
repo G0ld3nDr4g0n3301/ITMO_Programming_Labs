@@ -6,7 +6,7 @@ import shorties.Shorty;
 
 public class Hose {
 
-    public Location location;
+    private Location location;
     private Shorty worker;
 
     public Hose(Location location) {
@@ -14,8 +14,8 @@ public class Hose {
     }
 
     public void fire(Water water) {
-        water.move = WaterMoves.FALLING;
-        Water.WaterDrop drops = new Water.WaterDrop(water.waterVolume);
+        water.setMove(WaterMoves.FALLING);
+        Water.WaterDrop drops = new Water.WaterDrop(water.getWaterVolume());
         System.out.println("Вода падает вниз." + drops);
     }
 

@@ -2,11 +2,11 @@ package beds;
 
 public class Vegetable {
 
-    protected VegetableType type;
-    protected VegetableStages stage;
-    protected int baseVolume;
-    protected int volume;
-    protected double waterLevel = 0;
+    private VegetableType type;
+    private VegetableStages stage;
+    private int baseVolume;
+    private int volume;
+    private double waterLevel = 0;
 
     public void increaseWaterLevel(double d) {
         this.waterLevel = this.waterLevel + d;

@@ -4,9 +4,12 @@ import beds.VegetableType;
 
 import exceptions.StatisticsFailException;
 import interfaces.Damageable;
+import java.util.Scanner;
+
 import misc.Basket;
 import misc.Form;
 import misc.Location;
+
 
 import shorties.Harvester;
 import shorties.Fix;
@@ -17,7 +20,7 @@ import shorties.Shorty;
 
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws StatisticsFailException {
 
         Silly silly = new Silly();
         silly.shrug();
@@ -49,7 +52,9 @@ public class Main {
             silly.think(Thought.THE_VEGETABLES_SIZE);
         } catch (StatisticsFailException sfe) {
             System.out.println(sfe.getMessage());
+            silly.setMood(Mood.ASTONISHED);
         }
+        System.out.println(silly);
 
         silly.think(Thought.WATERING_THE_BEDS);
 
@@ -66,15 +71,22 @@ public class Main {
         Vegetable strawberry = new Vegetable(VegetableType.LUNAR_STRAWBERRY, 4, 10);
         strawberry_beds.fillBeds(strawberry);
 
-        Basket basket = new Basket(Form.ROUND, 3);
+        Basket basket = new Basket(Form.ROUND, 6);
         Harvester nick = new Harvester(basket, strawberry_beds, "Nick", Location.BEDS_STRAWBERRY);
-        nick.setWorkIterationsNumber(24);
+ 
+        System.out.println("Введите число клубник,которые рабочий соберет в корзину: ");
+        Scanner input = new Scanner(System.in);
+        int workIters = input.nextInt();
+        input.close();
+
+        nick.setWorkIterationsNumber(workIters);
         nick.work();
+        
         for (Vegetable i : basket.getBasketCells()) {
             System.out.println(i);
         }
 
-        Beds test = new Beds(0,0);
+        //Beds test = new Beds(0,0);
 
     }
 }
